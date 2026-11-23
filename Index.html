@@ -1,0 +1,49 @@
+!DOCTYPE html
+html lang=ru
+head
+meta charset=utf-8
+meta name=viewport content=width=device-width, initial-scale=1
+titleXSILON — Neirohood · релизtitle
+style
+  body{
+    background#0a080c;color#f0f0f5;
+    font-familyCourier New,monospace;
+    displayflex;flex-directioncolumn;
+    align-itemscenter;justify-contentcenter;
+    height100vh;margin0;text-aligncenter
+  }
+  .artist{font-size4vw;letter-spacing4px;color#8a8a95}
+  .title{font-size8vw;color#c84246;font-weightbold;letter-spacing2px}
+  .label{font-size3vw;letter-spacing6px;margin-top8vh;color#8a8a95}
+  #n{font-size22vw;color#f0f0f5;font-weightbold}
+  #h{font-size3.5vw;color#8a8a95}
+  .date{font-size2.5vw;letter-spacing4px;margin-top5vh;color#c84246}
+style
+head
+body
+  div class=artistXSILONdiv
+  div class=titleNEIROHOODdiv
+  div class=labelРЕЛИЗ ЧЕРЕЗdiv
+  div id=n--div
+  div id=hdiv
+  div class=date02.12.2026div
+script
+const target = new Date(2026-12-02T000000+0300);
+function tick(){
+  const left = target - new Date();
+  if (left = 0){
+    document.getElementById(n).textContent = 0;
+    document.getElementById(h).textContent = РЕЛИЗ. СЛУШАЕМ.;
+    return;
+  }
+  const days = Math.floor(left  86400000);
+  const hrs  = Math.floor((left % 86400000)  3600000);
+  const min  = Math.floor((left % 3600000)  60000);
+  document.getElementById(n).textContent = days;
+  document.getElementById(h).textContent = hrs +  Ч  + min +  МИН;
+  setTimeout(tick, 30000);
+}
+tick();
+script
+body
+html
